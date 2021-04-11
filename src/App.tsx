@@ -1,25 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {useEffect} from 'react'
+import Login from './login/login';
+import Main from './main/main'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom"; 
+
+
 
 function App() {
+
+  // slight update to account for browsers not supporting e.which
+  function disableF5(e:any) {
+    if ((e.which || e.keyCode) === 116)
+    e.preventDefault();
+  }
+
+  useEffect(()=>{
+  // To disable f5
+  $(document).on("keydown", disableF5);
+  },[])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/" exact component={Login} />
+        <Route path="/Main" component={Main} />
+      </Switch>
+      
+    </Router>
   );
 }
 

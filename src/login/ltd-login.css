@@ -1,0 +1,15 @@
+@charset "utf-8";
+
+/* CSS Document */
+
+/*begin master css*/
+@media screen and (max-width: 500px){
+	img {
+		max-width: 300px;
+	}
+	#social-footer{
+		display: none !important;
+	}
+}
+
+/*end master css*/
