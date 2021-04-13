@@ -2,6 +2,7 @@ import React from 'react'
 import ReactComment from '../../helper/comment'
 
 const Flip = () =>{
+    
     return(
         <React.Fragment>
             <ReactComment text='begin flip'/>

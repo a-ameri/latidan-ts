@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM, { render } from 'react-dom';
+import ReactDOM, {render} from 'react-dom';
 
 interface propsFOrThis{
   text : String
@@ -24,20 +24,14 @@ class ReactComment extends React.Component<propsFOrThis> {
   
       return `<!-- ${text} -->`
     }
-  
-    render() {
+
+    render(){
       return <div />
     }
+  
   }
   export default ReactComment;
 
 
-// const ReactComment = (props : any) =>{
-//   let text : Text = props.text
-//   return(
-//     <React.Fragment>
-//       <div />
-//     </React.Fragment>
-//   )
-// }  
+
 

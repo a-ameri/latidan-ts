@@ -23,6 +23,8 @@ function App() {
   $(document).on("keydown", disableF5);
   },[])
 
+    
+
   return (
     <Router>
       <Switch>

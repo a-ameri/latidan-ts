@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactComment from '../../helper/comment'
+import Menues from './menues'
 
 const Sidebar = (props : any) =>{
     return(
@@ -29,53 +30,7 @@ const Sidebar = (props : any) =>{
 
                         <ReactComment text='begin menu' />
 
-                        <div id="ltd-menu" className=" mt-3 ltd-font sidebar-obj">
-                            <ul className="list-group ltd-0radius p-0">
-                            <li data-toggle="collapse" data-target="#ul2-1" data-href="#" 
-                                    className="list-group-item list-group-item-action text-center ">
-                                    <span>همه صفحات</span>
-                            </li>
-                                <ul id="ul2-1" className="list-group ltd-0radius p-0 collapse">
-                                    <li data-href="#" className="list-group-item list-group-item-action">
-                                        <span>
-                                            <img src={props.Omoomi} alt="Omoomi"/>عمومی
-                                        </span>
-                                    </li>
-                                    <li data-toggle="collapse" data-target="#ul2-2" data-href="#" className="list-group-item list-group-item-action">
-                                        <span>
-                                            <img src={props.Mail} alt="Mail"/>مالی
-                                        </span>
-                                    </li>
-                                    <ul id="ul2-2" className="list-group ltd-0radius p-0 collapse">
-                                        <li data-href="#" className="list-group-item list-group-item-action">
-                                            <span><img src={props.Other} alt="Other"/>دارایی
-                                            </span>
-                                        </li>
-                                        <li data-toggle="collapse" data-target="#ul3-2" data-href="#" className="list-group-item list-group-item-action">		<span>
-                                            <img src={props.DaftarKol} alt="DaftarKol"/>دفتر کل
-                                            </span>
-                                        </li>
-                                        <ul id="ul3-2" className="list-group ltd-0radius p-0 collapse">
-                                            <li data-href="#" className="list-group-item list-group-item-action">
-                                                <span>
-                                                    <img src={props.Other} alt="Other"/>فهرست
-                                                </span>
-                                            </li>
-                                            <li data-href="#" className="list-group-item list-group-item-action">
-                                                <span>
-                                                    <img src={props.Paye} alt="Paye"/>اطلاعات پایه
-                                                </span>
-                                            </li>
-                                            <li data-href="#" className="list-group-item list-group-item-action">
-                                                <span>
-                                                    <img src={props.Hesab} alt="Hesab"/>حساب ها
-                                                </span>
-                                            </li>
-                                        </ul>
-                                    </ul>
-                                </ul>
-                            </ul>
-                        </div>
+                        <Menues Omoomi={props.Omoomi}/>
 
                         <ReactComment text='end menu'/>
 

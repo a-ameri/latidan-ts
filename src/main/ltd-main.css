@@ -168,7 +168,15 @@
 #ltd-menu{
 
 	right: 10px;
+	
+	font-size: smaller;
 
+}
+
+#ltd-menu li{
+
+	cursor: pointer;
+	
 }
 
 #ltd-menu img{

@@ -2,7 +2,7 @@ import React from 'react';
 import './ltd-login.css';
 import logo from '../images/ltd-logo-600.png';
 import companyLogo from '../images/company-logo.png';
-import Social from '../component/login/social'
+import Social from '../component/social_icons/social'
 import * as social_types from '../enums/social'
 import ReactComment from '../helper/comment'
 
@@ -11,7 +11,9 @@ const Login = () =>{
     return(
         <React.Fragment>            
             <div className="container">
+
                 <ReactComment text='begin login header' />
+
                 <div className="row mt-4">
                     <div className="col-md-6">
                         <div className="d-flex justify-content-start">
@@ -24,8 +26,11 @@ const Login = () =>{
                         </div>
                     </div>
                 </div>
+
                 <ReactComment text='end login header' />
+
                 <ReactComment text='begin login body' />
+
                 <div className="row">
                     <div className="col-md-6">
                         <br/><br/>
@@ -72,8 +77,11 @@ const Login = () =>{
                         </div>
                     </div>
                 </div>
+
                 <ReactComment text='end login body' />
+
                 <ReactComment text='begin login footer' />
+
                 <div className="row mb-4 fixed-bottom " style={{paddingLeft: "10%"}}>
                     <div className="col-md-12">
                         <div id="social-footer" className="d-flex justify-content-end ">	 
@@ -83,7 +91,9 @@ const Login = () =>{
                         </div>
                     </div>
                 </div>
+
                 <ReactComment text='end login footer' />
+                
             </div>
         </React.Fragment>        
     )
