@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactComment from '../../helper/comment';
 
-const Menues = (props : any) => {
+const Menues = () => {
     return(
         <React.Fragment>
             <ReactComment text="begin menu" />

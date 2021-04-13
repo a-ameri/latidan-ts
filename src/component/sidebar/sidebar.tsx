@@ -30,7 +30,7 @@ const Sidebar = (props : any) =>{
 
                         <ReactComment text='begin menu' />
 
-                        <Menues Omoomi={props.Omoomi}/>
+                        <Menues />
 
                         <ReactComment text='end menu'/>
 
