@@ -5,7 +5,7 @@ const ProfileMenu = () =>{
         <React.Fragment>
             <div id="avatar-menu" className="ltd-bg5 ltd-IRANSans-regular" >
                 <ul>
-                    <li>
+                    <li data-toggle="modal" data-target="#myModal">
                         <span className="fas fa-key fa-size">&nbsp;&nbsp;</span><span>تغییر رمز</span>
                     </li>
                     <li>

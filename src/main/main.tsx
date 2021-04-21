@@ -13,6 +13,7 @@ import DaftarKol from '../images/Menu/daftarkol.png'
 import Paye from '../images/Menu/paye.png'
 import Hesab from '../images/Menu/hesab.png'
 import AvatarPic from '../images/avatar.png'
+import Modal from '../helper/modal'
 
 
 const Main = () =>{
@@ -183,9 +184,8 @@ const Main = () =>{
     return(        
         <React.Fragment>
             <div className="container-fluid">
-
-                <div className="row">
-
+                    <Modal />
+                <div className="row">                    
                     <Sidebar 
                         Mail={Mail}
                         Hesab={Hesab}
@@ -195,7 +195,7 @@ const Main = () =>{
                         Other={Other}
                         Company={CompanyName}
                     />
-
+                                        
                     <ReactComment text='begin main'/>
 
                     <div id="ltd-main" className="col-sm-10 ltd-mian ltd-bg3 px-0 ">
