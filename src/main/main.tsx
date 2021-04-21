@@ -1,5 +1,4 @@
 import React, {useEffect} from 'react';
-import ReactDOM from 'react-dom';
 import Header from '../component/header/header'
 import ReactComment from '../helper/comment'
 import Sidebar from '../component/sidebar/sidebar';
@@ -83,9 +82,9 @@ const Main = () =>{
 
 			$(".sidebar-obj > ul > ul").addClass("show");
 
-			$(".sidebar-obj > ul > ul> ul > li > span").css("padding-right","10px");
+			//$(".sidebar-obj > ul > ul> ul > li > span.fa-size").css("padding-right","10px");
 
-			$(".sidebar-obj > ul > ul> ul > ul > li > span").css("padding-right","20px");
+			//$(".sidebar-obj > ul > ul> ul > ul > li > span.fa-size").css("padding-right","20px");
 
 		});
 
@@ -179,7 +178,7 @@ const Main = () =>{
     },[])
 
     let userfullname : String = "عادل عامری"
-    let CompanyName : String = "شرکت پدید آوران امید پارس"
+    let CompanyName : String = "شرکت پدید آوران امید پارس"    
    
     return(        
         <React.Fragment>
@@ -205,12 +204,7 @@ const Main = () =>{
 
                         <Header userfullname={userfullname} avatar={AvatarPic} />
 
-                        <Contents
-                            Paye={Paye}
-                            DaftarKol={DaftarKol}
-                            Omoomi={Omoomi}
-                            Other={Other}
-                        />   
+                        <Contents />   
 
                     </div>
 

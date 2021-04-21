@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactComment from '../../helper/comment'
-import Menues from './menues'
+import Menus from './menus'
 import Recent from './recent'
 
-const Sidebar = (props : any) =>{
+const Sidebar =     (props : any) =>{
     return(
         <React.Fragment>
             <ReactComment text='begin sidebar' />
@@ -27,7 +27,7 @@ const Sidebar = (props : any) =>{
 
                         <ReactComment text='begin menu' />
 
-                        <Menues />
+                        <Menus />
 
                         <ReactComment text='end menu'/>
 

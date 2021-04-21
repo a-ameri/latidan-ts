@@ -95,6 +95,7 @@
 	margin-left: 43px;
 	border-top-left-radius: 0;
 	border-bottom-left-radius: 0;
+	user-select: none;
 }
 #avatar-badge:hover{
 	opacity: 100%;
@@ -139,6 +140,46 @@
 
 	top: 0 !important;
 
+}
+
+#avatar .avatar-img{
+
+	z-index: 2;
+
+	left: 0!important;
+
+	top: 0 !important;
+
+	position: absolute;
+
+}
+
+#avatar-menu{
+
+	top : 30px;
+	left: 25px;
+	position: absolute;
+	border-radius: 0.5em;
+	width: 150px;
+	z-index: 1;
+	cursor: default;
+	padding-top: 15px;
+	padding-bottom: 10px;
+	user-select: none;
+}
+
+#avatar-menu ul{
+padding-right: 20px;
+}
+
+#avatar-menu li{
+	margin: 5px 0;
+	cursor: pointer;
+	list-style-type: none;
+}
+
+#avatar-menu li:hover{
+	background-color: #b4d6ce;
 }
 
 #srchbx{

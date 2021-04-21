@@ -4,7 +4,7 @@ import Avatar from './avatar'
 const AvatarBadge = (props : any) =>{
     return(
         <React.Fragment>
-            <div id="avatar-badge" className="ltd-avt badge ltd-bg5 p-2  ltd-header-badge">
+            <div id="avatar-badge" className="ltd-avt badge ltd-bg5 p-2  ltd-header-badge" onClick={props.onClickHandler}>
 
                 <span>{props.userfullname}</span>
 

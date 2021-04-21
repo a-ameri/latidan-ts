@@ -2,8 +2,14 @@ import React from 'react'
 import Avatar from './avatar'
 import AvatarBadge from './avatar_badge'
 import ReactComment from '../../helper/comment'
+import ProfileMenu from './profile_menu'
+import {connect} from 'react-redux'
+import * as actionType from '../../store/actionTypes'
 
 const Header = (props : any) =>{
+
+    let profileMenu = <ProfileMenu />
+
     return(
         <React.Fragment>
 
@@ -74,11 +80,13 @@ const Header = (props : any) =>{
 
                         </div>
                         
-                        <AvatarBadge userfullname = {props.userfullname} />
+                        <AvatarBadge userfullname = {props.userfullname} onClickHandler = {props.onAvatarClick}/>
+
+                        {props.showAvatarMenu ? profileMenu : null}
                         
                     </div>	
                     
-                    <Avatar avatar = {props.avatar} />
+                    <Avatar avatar = {props.avatar} onClickHandler = {props.onAvatarClick}/>
 
                 </div>
 
@@ -87,4 +95,16 @@ const Header = (props : any) =>{
     )
 }
 
-export default Header
+const mapStateToProps = (state : any) => {
+    return {
+        showAvatarMenu : state.header.showAvatarMenu
+    };
+};
+
+const mapDispatchToProps =(dispatch  : any) =>{
+    return{
+        onAvatarClick : () => dispatch({type:actionType.AvatarMenu})
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header)

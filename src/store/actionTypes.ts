@@ -1,0 +1,1 @@
+export const AvatarMenu = "AVATAR_MENU"
