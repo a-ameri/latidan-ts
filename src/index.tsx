@@ -6,9 +6,11 @@ import reportWebVitals from './reportWebVitals';
 import {createStore, combineReducers} from 'redux'
 import {Provider} from 'react-redux'
 import headerReducer from './store/reducer/header'
+import modalReducer from './store/reducer/modal'
 
 const rootReducer = combineReducers({
-  header : headerReducer
+  header : headerReducer,
+  modal : modalReducer
 });
 
 const store = createStore(rootReducer);

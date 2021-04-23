@@ -1,7 +1,8 @@
 import * as actionType from '../actionTypes'
 
 const InitState ={
-    showAvatarMenu : false
+    showAvatarMenu : false,
+    financialYear : 1400
 }
 
 const headerReducer = (state =InitState, action : any) =>{
@@ -10,6 +11,11 @@ const headerReducer = (state =InitState, action : any) =>{
             return{
                 ...state,
                 showAvatarMenu : !state.showAvatarMenu                               
+            }
+        case actionType.FinancialYear:
+            return{
+                ...state,
+                financialYear : action.financialYear
             }
     }
     return state
