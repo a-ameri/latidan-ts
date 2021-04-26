@@ -7,12 +7,24 @@ const ModalButton = (props: any) =>{
         let year : number = props.onClick()
         props.onChangeFinancialYear(year)
     }
+    let chaneGeneralOffice = () =>{
+        let generalOffice : any = props.onClick()
+        props.onChaneGeneralOffice(generalOffice)
+    }
     switch (props.type) {
         case actionType.FinancialYearModal:
             return(
                 <React.Fragment>            
                     <button type="button" className="btn btn-default ltd-bg5"
                         data-dismiss="modal" onClick={chaneFinancialyear}>تایید
+                    </button>
+                </React.Fragment>
+            )
+        case actionType.GeneralOfficeModal:
+            return(
+                <React.Fragment>            
+                    <button type="button" className="btn btn-default ltd-bg5"
+                        data-dismiss="modal" onClick={chaneGeneralOffice}>تایید
                     </button>
                 </React.Fragment>
             )
@@ -28,7 +40,8 @@ const ModalButton = (props: any) =>{
 
 const mapDispatchToProps = (dispatch : any) =>{
     return{
-        onChangeFinancialYear : (val : number) => dispatch({type:actionType.FinancialYear, financialYear : val})
+        onChangeFinancialYear : (val : number) => dispatch({type:actionType.FinancialYear, financialYear : val}),
+        onChaneGeneralOffice : (val : any) => dispatch({type:actionType.GeneralOffice, generalOffice : val})
     }
 }
 

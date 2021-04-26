@@ -14,9 +14,11 @@ import Paye from '../images/Menu/paye.png'
 import Hesab from '../images/Menu/hesab.png'
 import AvatarPic from '../images/avatar.png'
 import Modal from '../helper/modal'
+import {connect} from 'react-redux'
+import * as actionType from '../store/actionTypes'
 
 
-const Main = () =>{
+const Main = (props : any) =>{
 
     let openTabs : any = [];
     
@@ -83,9 +85,9 @@ const Main = () =>{
 
 			$(".sidebar-obj > ul > ul").addClass("show");
 
-			//$(".sidebar-obj > ul > ul> ul > li > span.fa-size").css("padding-right","10px");
+			$(".sidebar-obj > ul > ul> ul > li > span.fa-size").css("padding-right","10px");
 
-			//$(".sidebar-obj > ul > ul> ul > ul > li > span.fa-size").css("padding-right","20px");
+			$(".sidebar-obj > ul > ul> ul > ul > li > span.fa-size").css("padding-right","20px");
 
 		});
 
@@ -124,7 +126,7 @@ const Main = () =>{
             if($(this).attr("data-href") == "#")
             return;                
             
-            var id = $(this).attr("id");
+            var id = $(this).attr("data-id");
 
             let id_content = "div_"+id;
             
@@ -140,9 +142,18 @@ const Main = () =>{
             openTabs.push(id_content);
             $(".nav-link").removeClass("active");
 
-            var menu_title = '<li class="nav-item ltd-bg-tab ltd-IRANSans-medium">'+
+            let htmlName = $(this).text()
+            let spanClass = $(this).find(".fa-size").attr("class")
+            let allHtml = '<span class="'+spanClass+'">&nbsp;&nbsp;</span><span>'+htmlName+'</span>'
+            var menu_title = '<li class="nav-item ltd-bg-tab ltd-IRANSans-light">'+
             '<a data-toggle="tab" data-ltd-href="'+id_content+'" class="nav-link active">'
-            +$(this).html()+'&nbsp;&nbsp;<span class="fa fa-times ltd-close-tab"></span></a></li>';
+            +allHtml+'&nbsp;&nbsp;<span class="fa fa-times ltd-close-tab"></span></a></li>';
+
+            //#region add menu to history
+            console.log('before')
+            props.onClickMenuToAddHistory(allHtml)
+            console.log('after')
+            //#endregion
 
             $(".tab-pane").removeClass("active show");
             $("#addtab").before(menu_title);
@@ -217,4 +228,10 @@ const Main = () =>{
     )
 }
 
-export default Main;
+const mapDispatchToProps = (dispatch : any) =>{
+    return{
+        onClickMenuToAddHistory : (menuItem : any) => dispatch({type:actionType.RecentMenus, newMenu : menuItem})
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Main);

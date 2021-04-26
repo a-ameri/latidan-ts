@@ -30,9 +30,10 @@ const Header = (props : any) =>{
 
                         </div>
 
-                        <div className="badge ltd-bg5 p-2 mr-2 ltd-header-badge">
+                        <div className="badge ltd-bg5 p-2 mr-2 ltd-header-badge" 
+                        data-toggle="modal" data-target="#myModal" onClick={props.onGeneralClick}>
 
-                            <span>دفتر کل : دفتر اصلی</span>
+                            <span>دفتر کل : {props.generalOffice}</span>
 
                         </div>
 
@@ -99,14 +100,16 @@ const Header = (props : any) =>{
 const mapStateToProps = (state : any) => {
     return {
         showAvatarMenu : state.header.showAvatarMenu,
-        financialYear : state.header.financialYear
+        financialYear : state.header.financialYear,
+        generalOffice : state.header.generalOffice
     };
 };
 
 const mapDispatchToProps =(dispatch  : any) =>{
     return{
         onAvatarClick : () => dispatch({type:actionType.AvatarMenu}),
-        onFinancialClick : () => dispatch({type:actionType.FinancialYearModal})
+        onFinancialClick : () => dispatch({type:actionType.FinancialYearModal}),
+        onGeneralClick : () => dispatch({type:actionType.GeneralOfficeModal})
     }
 }
 

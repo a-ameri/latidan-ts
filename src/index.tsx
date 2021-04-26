@@ -7,10 +7,16 @@ import {createStore, combineReducers} from 'redux'
 import {Provider} from 'react-redux'
 import headerReducer from './store/reducer/header'
 import modalReducer from './store/reducer/modal'
+import sidebarReducer from './store/reducer/sidebar'
+import recentReducer from './store/reducer/recent'
 
 const rootReducer = combineReducers({
   header : headerReducer,
-  modal : modalReducer
+  modal : modalReducer,
+  sidebar: sidebarReducer,
+  recent : recentReducer
+
+
 });
 
 const store = createStore(rootReducer);
