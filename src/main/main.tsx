@@ -162,7 +162,7 @@ const Main = (props : any) =>{
             //#endregion
 
             $(".tab-pane").removeClass("active show");
-            $("#addtab").before(menu_title);
+            $("#close_all").before(menu_title);
             
             $("#tab-content").append("<div id='"+id_content+"' class='tab-pane fade in active show'></div>");
 
@@ -205,7 +205,7 @@ const Main = (props : any) =>{
             //#endregion
 
             $(".tab-pane").removeClass("active show");
-            $("#addtab").before(menu_title);
+            $("#close_all").before(menu_title);
             
             $("#tab-content").append("<div id='"+id_content+"' class='tab-pane fade in active show'></div>");
 
@@ -222,6 +222,21 @@ const Main = (props : any) =>{
             activePane(inx);
             openTabs.splice(inx,1);
         });
+        //#endregion
+
+        //#region Click on Close All Tabs
+        $(document).on("click","#close_all",(function(){
+            $("#tab-title").empty();
+            $("#tab-content").empty();
+            let close_all =(
+                '<li id="close_all">'+
+                    '<span class="fas fa-window-close fa-2x mr-2 mt-2"'+
+                    'data-toggle="tooltip" data-placement="bottom" title="بستن همه"></span>'+
+                '</li>'
+            )
+            $("#tab-title").append(close_all);
+            openTabs = []
+        }))
         //#endregion
 
         //#region click on tabs and show pane
