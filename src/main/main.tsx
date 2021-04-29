@@ -150,9 +150,7 @@ const Main = (props : any) =>{
             +allHtml+'&nbsp;&nbsp;<span class="fa fa-times ltd-close-tab"></span></a></li>';
 
             //#region add menu to history
-            console.log('before')
-            props.onClickMenuToAddHistory(allHtml)
-            console.log('after')
+            props.onClickMenuToAddHistory(allHtml, id)
             //#endregion
 
             $(".tab-pane").removeClass("active show");
@@ -162,7 +160,49 @@ const Main = (props : any) =>{
 
             RenderTabs(id, id_content);
 
+            setRecentMenu();
+
         }));
+        //#endregion
+
+        //#region select recent menu list
+        $(document).on("click", "#recent-menu li",(function(){
+            if($(this).attr("data-href") == "#")
+            return;           
+
+            var id = $(this).attr("data-id");
+
+            let id_content = "div_"+id;
+            //if tabs exist select opened tab
+            if(openTabs.indexOf(id_content) >= 0){
+                $(".tab-pane").removeClass("active show");
+                $("#"+id_content).addClass("active show");
+                $("[data-ltd-href]").removeClass("active");
+                $("[data-ltd-href='"+id_content+"']").addClass("active");
+                return;
+            }
+            
+            openTabs.push(id_content);
+            $(".nav-link").removeClass("active");
+
+            let htmlName = $(this).text()
+            let spanClass = $(this).find(".fa-size").attr("class")
+            let allHtml = '<span class="'+spanClass+'">&nbsp;&nbsp;</span><span>'+htmlName+'</span>'
+            var menu_title = '<li class="nav-item ltd-bg-tab ltd-IRANSans-light">'+
+            '<a data-toggle="tab" data-ltd-href="'+id_content+'" class="nav-link active">'
+            +allHtml+'&nbsp;&nbsp;<span class="fa fa-times ltd-close-tab"></span></a></li>';
+
+            //#region add menu to history
+            props.onClickMenuToAddHistory(allHtml, id)
+            //#endregion
+
+            $(".tab-pane").removeClass("active show");
+            $("#addtab").before(menu_title);
+            
+            $("#tab-content").append("<div id='"+id_content+"' class='tab-pane fade in active show'></div>");
+
+            RenderTabs(id, id_content);
+        }))
         //#endregion
 
         //#region click on x button and close pane
@@ -188,6 +228,20 @@ const Main = (props : any) =>{
         });
         //#endregion
     },[])
+
+    const setRecentMenu = ()=>{
+        let menus : [] = props.menus
+        let ids : [] = props.ids
+        let beginLi = '<li class="list-group-item list-group-item-action ltd-bg5" '
+        let endLi = '</li>'
+        let allHtml = ''
+        menus.forEach((item, index)=>{
+            allHtml += beginLi + `data-id="${ids[index]}" >` + item + endLi
+        })
+
+        $('#recent-menu-add').empty()
+        $('#recent-menu-add').append(allHtml)
+    }
 
     let userfullname : String = "عادل عامری"
     let CompanyName : String = "شرکت پدید آوران امید پارس"    
@@ -228,10 +282,17 @@ const Main = (props : any) =>{
     )
 }
 
-const mapDispatchToProps = (dispatch : any) =>{
+const mapStateToProps = (state : any) =>{
     return{
-        onClickMenuToAddHistory : (menuItem : any) => dispatch({type:actionType.RecentMenus, newMenu : menuItem})
+        menus : state.recent.historyMenus,
+        ids : state.recent.ids
     }
 }
 
-export default connect(null, mapDispatchToProps)(Main);
+const mapDispatchToProps = (dispatch : any) =>{
+    return{
+        onClickMenuToAddHistory : (menuItem : any, li_id : any) => dispatch({type:actionType.RecentMenus, newMenu : menuItem, id : li_id})
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main);

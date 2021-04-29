@@ -206,7 +206,7 @@ padding-right: 20px;
 
 }
 
-#ltd-menu{
+#ltd-menu, #recent-menu{
 
 	right: 10px;
 	
@@ -216,13 +216,13 @@ padding-right: 20px;
 
 }
 
-#ltd-menu li{
+#ltd-menu li, #recent-menu li{
 
 	cursor: pointer;
 	
 }
 
-#ltd-menu img{
+#ltd-menu img, #recent-menu img{
 
 	height: 15px; 
 
@@ -257,7 +257,10 @@ padding-right: 20px;
 	opacity: 100%;
 
 	cursor: pointer;
+}
 
+#tab-title li{
+	user-select: none;
 }
 
 /*end master css*/

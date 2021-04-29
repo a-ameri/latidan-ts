@@ -1,5 +1,5 @@
 import React from 'react'
-import Daftarkol from './financial/daftarkol'
+import BasicInformation from './financial/basicInformation'
 
 const Financial = () =>{
 
@@ -16,7 +16,7 @@ const Financial = () =>{
             </li>
             <ul id="ul3-1" className="list-group ltd-0radius p-0 collapse">
                 {Daraii}
-                <Daftarkol />
+                <BasicInformation />
             </ul>                        
             
         </React.Fragment>

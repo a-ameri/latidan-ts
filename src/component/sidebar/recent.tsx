@@ -1,24 +1,19 @@
-import React,{useEffect} from 'react'
-import {connect} from 'react-redux'
+import React from 'react'
+const Recent = () =>{
 
-const Recent = (props : any) =>{
 
     return(
         <React.Fragment>
-            {console.log("from main",props.menus)}
-            <div className="mt-3 ltd-font sidebar-obj" style={{right: "10px"}}>
+            <div id="recent-menu" className=" mt-3 sidebar-obj  ltd-IRANSans-light">
                 <ul className="list-group ltd-0radius p-0">
-                    <li data-href="#" className="list-group-item list-group-item-action text-center">صفحات به تازگی بازدید شده</li>	
+                    <li data-href="#" className="list-group-item list-group-item-action text-center"
+                        data-toggle="collapse" data-target="#recent-menu-add">صفحات به تازگی بازدید شده
+                    </li>
+                    <ul id="recent-menu-add" className="list-group ltd-0radius p-0 collapse show"></ul>	
                 </ul> 
             </div>
         </React.Fragment>
     )
 }
 
-const mapStateToProps = (state : any) =>{
-    return{
-        menus : state.recent.historyMenus
-    }
-}
-
-export default connect(mapStateToProps)(Recent)
+export default Recent

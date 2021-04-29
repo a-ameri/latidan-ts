@@ -1,24 +1,29 @@
 import * as actionType from '../actionTypes'
 
 interface stateType{
-    historyMenus : any
+    historyMenus : any,
+    ids : any
 }
 
 const InitState : stateType ={
-    historyMenus  : [] 
+    historyMenus  : [],
+    ids : []
 }
 
 const recentReducer = (state =InitState, action : any) =>{
     switch(action.type){
         case actionType.RecentMenus:
-            console.log(state.historyMenus)
             if(state.historyMenus.indexOf(action.newMenu) === -1){
                 state.historyMenus.splice(0,0,action.newMenu)
                 state.historyMenus.splice(10)
+
+                state.ids.splice(0,0,action.id)
+                state.ids.splice(10)
             }
             return{
                 ...state,
-                historyMenus : state.historyMenus
+                historyMenus : state.historyMenus,
+                ids : state.ids
             }
     }
     return state

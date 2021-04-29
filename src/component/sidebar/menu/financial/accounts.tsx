@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Daftarkol = () =>{
+const Accounts = () =>{
 
     let fehrest = (
         <li data-id="request_software" className="list-group-item list-group-item-action">
@@ -35,4 +35,4 @@ const Daftarkol = () =>{
     )
 }
 
-export default Daftarkol
+export default Accounts
