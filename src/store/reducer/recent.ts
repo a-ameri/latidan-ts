@@ -15,10 +15,10 @@ const recentReducer = (state =InitState, action : any) =>{
         case actionType.RecentMenus:
             if(state.historyMenus.indexOf(action.newMenu) === -1){
                 state.historyMenus.splice(0,0,action.newMenu)
-                state.historyMenus.splice(10)
+                state.historyMenus.splice(5)
 
                 state.ids.splice(0,0,action.id)
-                state.ids.splice(10)
+                state.ids.splice(5)
             }
             return{
                 ...state,

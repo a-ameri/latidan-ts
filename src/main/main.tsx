@@ -73,6 +73,8 @@ const Main = (props : any) =>{
 
 		$(function(){
 
+            $(".sidebar-obj > ul > ul li").css("height","40px");
+
 			$(".sidebar-obj > ul > li").addClass("ltd-bg1");
 
 			$(".sidebar-obj > ul > li").addClass("ltd-color5");
@@ -81,13 +83,19 @@ const Main = (props : any) =>{
 
 			$(".sidebar-obj > ul > ul> ul > li").addClass("ltd-bg6");
 
-			$(".sidebar-obj > ul > ul> ul > ul > li").addClass("ltd-bg3");
+			$(".sidebar-obj > ul > ul> ul > ul > li").addClass("ltd-bg4");
+
+			$(".sidebar-obj > ul > ul> ul > ul > ul > li").addClass("ltd-bg2-1");
 
 			$(".sidebar-obj > ul > ul").addClass("show");
 
 			$(".sidebar-obj > ul > ul> ul > li > span.fa-size").css("padding-right","10px");
 
-			$(".sidebar-obj > ul > ul> ul > ul > li > span.fa-size").css("padding-right","20px");
+			$(".sidebar-obj > ul > ul> ul > ul > li > span.fa-size").css("padding-right","15px");
+
+            $(".sidebar-obj > ul > ul> ul > ul > ul > li > span.fa-size").css("padding-right","20px");
+
+            $(".sidebar-obj > ul > ul> ul > ul > ul > li").css("color","black");
 
 		});
 
@@ -232,7 +240,7 @@ const Main = (props : any) =>{
     const setRecentMenu = ()=>{
         let menus : [] = props.menus
         let ids : [] = props.ids
-        let beginLi = '<li class="list-group-item list-group-item-action ltd-bg5" '
+        let beginLi = '<li class="list-group-item list-group-item-action ltd-bg5" style="height : 40px" '
         let endLi = '</li>'
         let allHtml = ''
         menus.forEach((item, index)=>{
@@ -263,7 +271,7 @@ const Main = (props : any) =>{
                                         
                     <ReactComment text='begin main'/>
 
-                    <div id="ltd-main" className="col-sm-10 ltd-mian ltd-bg3 px-0 ">
+                    <div id="ltd-main" className="col-sm-10 ltd-mian ltd-bg4 px-0 ">
 
                         <Flip />
 

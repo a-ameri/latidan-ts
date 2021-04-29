@@ -1,5 +1,5 @@
 import React from 'react'
-import BasicInformation from './general/basicInformation/basicInformation'
+import BasicInformation from './general/basicInformation'
 
 const General = () =>{
 
