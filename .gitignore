@@ -10,7 +10,17 @@
 
 # production
 /build
-/public
+/public/css/*
+/public/font/
+/public/js/
+/public/less/
+/public/metadata/
+/public/scss/
+/public/sprites/
+/public/svgs/
+/public/webfonts/
+!/public/css/ltd*
+
 
 # misc
 .DS_Store

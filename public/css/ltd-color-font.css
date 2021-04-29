@@ -1,0 +1,63 @@
+@charset "utf-8";
+/* CSS Document */
+.ltd-bg1{
+	background-color: #294f3a;
+}
+.ltd-bg2{
+	background-color: #557463;		
+}
+.ltd-bg2-1{
+	background-color: #4c8a7c;
+}
+.ltd-bg3{
+	background-color: #90aaa4;
+}
+.ltd-bg4{
+	background-color: #b4d6ce;
+}
+.ltd-bg5{
+	background-color: #cff0e8;
+}
+.ltd-bg6{
+	background-color: #eef1f0;
+}
+.ltd-bg7{
+	background-color: #dbe8e5;
+}
+.ltd-bg-tab{
+	background-color: #ebf7f4;
+}
+.ltd-0radius{
+	border-radius: 0 !important;
+}
+.ltd-IRANSans-regular{
+	font-family: IRANSans-regular;	
+}
+.ltd-IRANSans-light{
+	font-family: IRANSans-light;	
+}
+.ltd-IRANSans-ultra-light{
+	font-family: IRANSans-ultralight;	
+}
+.ltd-IRANSans-font{
+	font-family: IRANSans-bold;
+	color: #294f3a;
+}
+.ltd-IRANSans-bold{
+	font-family: IRANSans-bold;
+}
+.ltd-IRANSans-medium{
+	font-family: IRANSans-medium;	
+}
+.ltd-color1{
+	color: #294f3a;
+}
+.ltd-color5{
+	color: #cff0e8;
+}
+.ltd-font{
+font-size: 75%;
+font-weight: 700;
+line-height: 1;
+/*white-space: nowrap;*/
+}

@@ -11,7 +11,9 @@ const Contents = () =>{
                 
                 <ul id="tab-title" className="nav nav-tabs ltd-sans-bold border-0" >
                     <li id="addtab">
-                        <span className="fas fa-plus-square fa-2x mr-2 mt-2"></span>
+                        {/* <span className="fas fa-plus-square fa-2x mr-2 mt-2"></span> */}
+                        <span className="fas fa-window-close fa-2x mr-2 mt-2"
+                        data-toggle="tooltip" data-placement="bottom" title="بستن همه"></span>
                     </li>
                 </ul>
 
