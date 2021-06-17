@@ -4,6 +4,7 @@ import ModalButton from './modalButton'
 import {connect} from 'react-redux'
 
 const Modal = (props:any)=>{
+
     return(
         <React.Fragment>
             

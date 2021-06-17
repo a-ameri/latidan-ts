@@ -1,26 +1,49 @@
-import React, {useEffect} from 'react';
+import React, {useEffect} from 'react'
+import ReactDOM from 'react-dom'
 import Header from '../component/header/header'
 import ReactComment from '../helper/comment'
-import Sidebar from '../component/sidebar/sidebar';
-import Flip from '../component/sidebar/flip';
+import Sidebar from '../component/sidebar/sidebar'
+import Flip from '../component/sidebar/flip'
 import Contents from '../component/contents/contents'
-import './ltd-main.css';
-import $ from "jquery";
-import Mail from '../images/Menu/mali.png';
-import Omoomi from '../images/Menu/omoomi.png';
-import Other from '../images/Menu/other.png';
+import $ from "jquery"
+import Modal from '../helper/modal'
+import {connect} from 'react-redux'
+import * as actionType from '../store/actionTypes'
+//----------------------------------------------------------
+import './ltd-main.css'
+import './ltd-sub.css'
+//----------------------------------------------------------
+import Mali from '../images/Menu/mali.png'
+import Omoomi from '../images/Menu/omoomi.png'
+import Other from '../images/Menu/other.png'
 import DaftarKol from '../images/Menu/daftarkol.png'
 import Paye from '../images/Menu/paye.png'
 import Hesab from '../images/Menu/hesab.png'
 import AvatarPic from '../images/avatar.png'
-import Modal from '../helper/modal'
-import {connect} from 'react-redux'
-import * as actionType from '../store/actionTypes'
+import Save from '../images/save.png'
+import SaveAdd from '../images/save add.png'
+import SaveClose from '../images/save close.png'
+//----------------------------------------------------------
+import PersonAndCompany from '../component/contents/general/basicInformation/personAndCompany'
 
 
 const Main = (props : any) =>{
 
-    let openTabs : any = [];
+    let openTabs : any = []
+
+    const setRecentMenu = ()=>{
+        let menus : [] = props.menus
+        let ids : [] = props.ids
+        let beginLi = '<li class="list-group-item list-group-item-action ltd-bg5" style="height : 40px" '
+        let endLi = '</li>'
+        let allHtml = ''
+        menus.forEach((item, index)=>{
+            allHtml += beginLi + `data-id="${ids[index]}" >` + item + endLi
+        })
+
+        $('#recent-menu-add').empty()
+        $('#recent-menu-add').append(allHtml)
+    }
     
     useEffect(()=>{
         $("#flip").on('click',(function(){
@@ -32,8 +55,6 @@ const Main = (props : any) =>{
 				document.getElementById("ltd-sidebar")!.style.width = "16.67%";
 
 				document.getElementById("ltd-main")!.style.marginRight = "16.67%";
-
-				document.getElementById("tab-content")!.style.width = "80%";	
 
 				$("#ltd-sidebar").addClass("col-sm-2");
 
@@ -55,9 +76,7 @@ const Main = (props : any) =>{
 
 				document.getElementById("ltd-sidebar")!.style.width = "0%";
 
-				document.getElementById("ltd-main")!.style.marginRight = "0%";
-
-				document.getElementById("tab-content")!.style.width = "97%";	
+				document.getElementById("ltd-main")!.style.marginRight = "0%";	
 
 				$("#ltd-main").removeClass("col-sm-10");
 
@@ -102,8 +121,8 @@ const Main = (props : any) =>{
         //#region render pages with react
         function RenderTabs($tabName : any, $id_content : any){
             switch($tabName){
-                case "request_stuff":
-                    //ReactDOM.render(<Request_stuff Save={Save} SaveAdd = {SaveAdd} SaveClose={SaveClose} />, document.getElementById($id_content));
+                case "person_and_company":
+                    ReactDOM.render(<PersonAndCompany save={Save} saveAdd = {SaveAdd} saveClose={SaveClose} />, document.getElementById($id_content));
                     break;
             }
         }
@@ -154,7 +173,7 @@ const Main = (props : any) =>{
             let spanClass = $(this).find(".fa-size").attr("class")
             let allHtml = '<span class="'+spanClass+'">&nbsp;&nbsp;</span><span>'+htmlName+'</span>'
             var menu_title = '<li class="nav-item ltd-bg-tab ltd-IRANSans-light">'+
-            '<a data-toggle="tab" data-ltd-href="'+id_content+'" class="nav-link active">'
+            '<a data-toggle="tab" data-ltd-href="'+id_content+'" class="nav-link active main-tab-click">'
             +allHtml+'&nbsp;&nbsp;<span class="fa fa-times ltd-close-tab"></span></a></li>';
 
             //#region add menu to history
@@ -164,13 +183,13 @@ const Main = (props : any) =>{
             $(".tab-pane").removeClass("active show");
             $("#close_all").before(menu_title);
             
-            $("#tab-content").append("<div id='"+id_content+"' class='tab-pane fade in active show'></div>");
+            $("#tab-content").append("<div id='"+id_content+"' class='tab-pane fade main-content-show in active show'></div>");
 
             RenderTabs(id, id_content);
 
             setRecentMenu();
 
-        }));
+        }))
         //#endregion
 
         //#region select recent menu list
@@ -221,7 +240,7 @@ const Main = (props : any) =>{
             let inx = openTabs.indexOf(id_content);                
             activePane(inx);
             openTabs.splice(inx,1);
-        });
+        })
         //#endregion
 
         //#region Click on Close All Tabs
@@ -239,32 +258,31 @@ const Main = (props : any) =>{
         }))
         //#endregion
 
-        //#region click on tabs and show pane
-        $(document).on("click", "a.nav-link" , function() {
+        //#region click on Main tabs and show pane
+        $(document).on("click", "a.main-tab-click" , function() {
             if(removePane == false)
             {
-                $(".tab-pane").removeClass("active show");
+                // $(".tab-pane").removeClass("active show");
+                $(".main-content-show").removeClass("active show");
                 var id_content = $(this).attr("data-ltd-href");
                 $("#"+id_content).addClass("active show");
             }			
             removePane = false;
-        });
+        })
+        //#endregion
+
+        //#region click on SUB tabs and show pane
+        $(document).on("click", "a.sub-tab-click" , function() {
+            if(removePane == false)
+            {
+                $(".sub-content-show").removeClass("active show");
+                var id_content = $(this).attr("data-ltd-href");
+                $("#"+id_content).addClass("active show");
+            }			
+            removePane = false;
+        })
         //#endregion
     },[])
-
-    const setRecentMenu = ()=>{
-        let menus : [] = props.menus
-        let ids : [] = props.ids
-        let beginLi = '<li class="list-group-item list-group-item-action ltd-bg5" style="height : 40px" '
-        let endLi = '</li>'
-        let allHtml = ''
-        menus.forEach((item, index)=>{
-            allHtml += beginLi + `data-id="${ids[index]}" >` + item + endLi
-        })
-
-        $('#recent-menu-add').empty()
-        $('#recent-menu-add').append(allHtml)
-    }
 
     let userfullname : String = "عادل عامری"
     let CompanyName : String = "شرکت پدید آوران امید پارس"    
@@ -275,7 +293,7 @@ const Main = (props : any) =>{
                     <Modal />
                 <div className="row">                    
                     <Sidebar 
-                        Mail={Mail}
+                        Mail={Mali}
                         Hesab={Hesab}
                         DaftarKol={DaftarKol}
                         Paye={Paye}

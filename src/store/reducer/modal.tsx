@@ -61,32 +61,32 @@ const modalReducer = (state =InitState, action : any) =>{
                 },
                 type : actionType.FinancialYearModal
             }
-            case actionType.GeneralOfficeModal:
-                return{
-                    ...state,
-                    headerText : "انتخاب دفتر کل",
-                    bodyElement : 
-                    <div className="row">
-                        <div className="col-6">
-                            <label>دفتر کل</label>                        
+        case actionType.GeneralOfficeModal:
+            return{
+                ...state,
+                headerText : "انتخاب دفتر کل",
+                bodyElement : 
+                <div className="row">
+                    <div className="col-6">
+                        <label>دفتر کل</label>                        
+                    </div>
+                    <div className="col-6">
+                        <div className="ml-3 my-2 input-group-sm">
+                            <select className="form-control font-weight-light
+                                ltd-IRANSans-regular ltd-0radius" id="FinancialYearBox" name="FinancialYearBox">
+                                <option value="دفتر اصلی" selected>دفتر اصلی</option>
+                                <option value="دفتر شعبه 2" >دفتر شعبه 2</option>
+                            </select>
                         </div>
-                        <div className="col-6">
-                            <div className="ml-3 my-2 input-group-sm">
-                                <select className="form-control font-weight-light
-                                 ltd-IRANSans-regular ltd-0radius" id="FinancialYearBox" name="FinancialYearBox">
-                                    <option value="دفتر اصلی" selected>دفتر اصلی</option>
-                                    <option value="دفتر شعبه 2" >دفتر شعبه 2</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>,
-                    onAcceptClick : ()  => {
-                        let temp = document.getElementById("FinancialYearBox") as HTMLSelectElement
-                        let val = temp.value
-                        return val                    
-                    },
-                    type : actionType.GeneralOfficeModal
-                }
+                    </div>
+                </div>,
+                onAcceptClick : ()  => {
+                    let temp = document.getElementById("FinancialYearBox") as HTMLSelectElement
+                    let val = temp.value
+                    return val                    
+                },
+                type : actionType.GeneralOfficeModal
+            }
     }
     return state
 }

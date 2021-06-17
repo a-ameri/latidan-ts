@@ -7,6 +7,7 @@ const Contents = () =>{
             <ReactComment text='begin content'/>			
 
             <div className="ltd-content ltd-color1">
+
                 <ReactComment text='begin tab title'/>
                 
                 <ul id="tab-title" className="nav nav-tabs ltd-sans-bold border-0" >
@@ -21,8 +22,9 @@ const Contents = () =>{
 
                 <ReactComment text='begin tab contents'/>     
 
-                    <div id="tab-content" className="ltd-tabs tab-content ltd-bg-tab ltd-sans-regular"> 
-                    </div>
+                <div id="tab-content" className="ltd-tabs tab-content ltd-bg-tab ltd-sans-regular">
+                    
+                </div>
 
                 <ReactComment text='end tab contents'/>
 

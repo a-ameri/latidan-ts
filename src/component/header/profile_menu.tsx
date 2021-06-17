@@ -3,11 +3,17 @@ import React from 'react'
 import {connect} from 'react-redux'
 
 const ProfileMenu = (props : any) =>{
+
+    const onAvatarClick=()=>{
+        props.onAvatarClick()
+        props.onPasswordClick()
+    }
+
     return(
         <React.Fragment>
             <div id="avatar-menu" className="ltd-bg5 ltd-IRANSans-regular" >
                 <ul>
-                    <li data-toggle="modal" data-target="#myModal" onClick={props.onAvatarClick}>
+                    <li data-toggle="modal" data-target="#myModal" onClick={onAvatarClick}>
                         <span className="fas fa-key fa-size">&nbsp;&nbsp;</span><span>تغییر رمز</span>
                     </li>
                     <li>
@@ -27,7 +33,8 @@ const ProfileMenu = (props : any) =>{
 
 const mapDispatchToProps = (dispatch : any) =>{
     return{
-        onAvatarClick : () => dispatch({type:actionType.PasswordModal})
+        onPasswordClick : () => dispatch({type:actionType.PasswordModal}),
+        onAvatarClick : () => dispatch({type:actionType.AvatarMenu})
     }
 }
 
