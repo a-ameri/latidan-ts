@@ -1,7 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import ReactComment from '../../../../helper/comment'
 
 const Project = (props:any) =>{
+    useEffect(()=>{
+        //#region click on SUB tabs and show pane
+        $(document).on("click", "[data-ltd-href^=poject]" , function() {            
+            var id_content = $(this).attr("data-ltd-href");
+            $("[id^=poject]").removeClass("in active show");
+            $("#"+id_content).addClass("in active show");
+        })
+        //#endregion
+    },[])
     return(
         <React.Fragment>
                 
