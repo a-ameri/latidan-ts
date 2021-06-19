@@ -25,6 +25,8 @@ import SaveAdd from '../images/save add.png'
 import SaveClose from '../images/save close.png'
 //----------------------------------------------------------
 import PersonAndCompany from '../component/contents/general/basicInformation/personAndCompany'
+import CostCenter from '../component/contents/general/basicInformation/costCenter'
+import Project from '../component/contents/general/basicInformation/project'
 
 
 const Main = (props : any) =>{
@@ -124,6 +126,12 @@ const Main = (props : any) =>{
                 case "person_and_company":
                     ReactDOM.render(<PersonAndCompany save={Save} saveAdd = {SaveAdd} saveClose={SaveClose} />, document.getElementById($id_content));
                     break;
+                case "cost_center":
+                    ReactDOM.render(<CostCenter save={Save} saveAdd = {SaveAdd} saveClose={SaveClose} />, document.getElementById($id_content));
+                    break;
+                case "project":
+                    ReactDOM.render(<Project save={Save} saveAdd = {SaveAdd} saveClose={SaveClose} />, document.getElementById($id_content));
+                    break;
             }
         }
         //#endregion
@@ -159,7 +167,7 @@ const Main = (props : any) =>{
             
             //if tabs exist select opened tab
             if(openTabs.indexOf(id_content) >= 0){
-                $(".tab-pane").removeClass("active show");
+                $(".main-content-show").removeClass("active show");
                 $("#"+id_content).addClass("active show");
                 $("[data-ltd-href]").removeClass("active");
                 $("[data-ltd-href='"+id_content+"']").addClass("active");
@@ -180,7 +188,7 @@ const Main = (props : any) =>{
             props.onClickMenuToAddHistory(allHtml, id)
             //#endregion
 
-            $(".tab-pane").removeClass("active show");
+            $(".main-content-show").removeClass("active show");
             $("#close_all").before(menu_title);
             
             $("#tab-content").append("<div id='"+id_content+"' class='tab-pane fade main-content-show in active show'></div>");
@@ -202,7 +210,7 @@ const Main = (props : any) =>{
             let id_content = "div_"+id;
             //if tabs exist select opened tab
             if(openTabs.indexOf(id_content) >= 0){
-                $(".tab-pane").removeClass("active show");
+                $(".main-content-show").removeClass("active show");
                 $("#"+id_content).addClass("active show");
                 $("[data-ltd-href]").removeClass("active");
                 $("[data-ltd-href='"+id_content+"']").addClass("active");
@@ -263,28 +271,16 @@ const Main = (props : any) =>{
             if(removePane == false)
             {
                 // $(".tab-pane").removeClass("active show");
-                $(".main-content-show").removeClass("active show");
+                $(".main-content-show").removeClass("in active show");
                 var id_content = $(this).attr("data-ltd-href");
-                $("#"+id_content).addClass("active show");
-            }			
-            removePane = false;
-        })
-        //#endregion
-
-        //#region click on SUB tabs and show pane
-        $(document).on("click", "a.sub-tab-click" , function() {
-            if(removePane == false)
-            {
-                $(".sub-content-show").removeClass("active show");
-                var id_content = $(this).attr("data-ltd-href");
-                $("#"+id_content).addClass("active show");
+                $("#"+id_content).addClass("in active show");
             }			
             removePane = false;
         })
         //#endregion
     },[])
 
-    let userfullname : String = "عادل عامری"
+    let userfullname : String = "عادل عامری سیاهوئی"
     let CompanyName : String = "شرکت پدید آوران امید پارس"    
    
     return(        

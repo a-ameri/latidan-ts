@@ -1,7 +1,16 @@
-import React, { Fragment } from 'react'
+import React, { useEffect } from 'react'
 import ReactComment from '../../../../helper/comment'
 
 const PersonAndCompany = (props:any) =>{
+    useEffect(()=>{
+        //#region click on SUB tabs and show pane
+        $(document).on("click", "[data-ltd-href^=p-and-c]" , function() {            
+            var id_content = $(this).attr("data-ltd-href");
+            $("[id^=p-and-c]").removeClass("in active show");
+            $("#"+id_content).addClass("in active show");
+        })
+        //#endregion
+    },[])
     return(
         <React.Fragment>
                 
@@ -43,7 +52,7 @@ const PersonAndCompany = (props:any) =>{
 
                         <li className="ltd-sub nav-item ltd-bg-tab" dir="ltr">
 
-                            <a data-toggle="tab" data-ltd-href="document" className="ltd-sub nav-link sub-tab-click active"> اطلاعات شخص
+                            <a data-toggle="tab" data-ltd-href="p-and-c-document" className="ltd-sub nav-link sub-tab-click active"> اطلاعات شخص
 
                             </a>
 
@@ -51,7 +60,7 @@ const PersonAndCompany = (props:any) =>{
                         
                         <li className="ltd-sub nav-item ltd-bg-tab" dir="ltr">
 
-                            <a data-toggle="tab" data-ltd-href="history" className="ltd-sub nav-link sub-tab-click"> تاریخچه تغییرات
+                            <a data-toggle="tab" data-ltd-href="p-and-c-history" className="ltd-sub nav-link sub-tab-click"> تاریخچه تغییرات
 
                             </a>
 
@@ -64,7 +73,7 @@ const PersonAndCompany = (props:any) =>{
                 <ReactComment text="begin tab content" />
                 <div id="ltd-sub-content" className="ltd-sub col-12 ltd-tabs tab-content ltd-IRANSans-regular">
 
-                    <div id="document" className="ltd-sub tab-pane fade sub-content-show in active show ">
+                    <div id="p-and-c-document" className="document ltd-sub tab-pane fade sub-content-show in active show ">
                         <ReactComment text="begin content header" />
                         <div>
                             <div className="ltd-sub row">
@@ -228,7 +237,7 @@ const PersonAndCompany = (props:any) =>{
 
                     </div>
 
-                    <div id="history" className="ltd-sub tab-pane fade sub-content-show">
+                    <div id="p-and-c-history" className="history ltd-sub tab-pane fade sub-content-show">
 
                         123
 

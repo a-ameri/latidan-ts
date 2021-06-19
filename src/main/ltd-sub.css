@@ -83,27 +83,35 @@ div.ltd-sub .badge{
 
 }
 
-#document.ltd-sub, #history.ltd-sub{
+[id$=document].ltd-sub, #history.ltd-sub{
 
 	height: 390px;
 
 }
-#document.ltd-sub label{
+[id$=document].ltd-sub label{
 	width: 40%;
 }
-#document.ltd-sub input[type="text"],#document select{
+[id$=document].ltd-sub .col-md-6 label{
+	width: 20%;
+}
+[id$=document].ltd-sub input[type="text"],[id$=document] select{
 	width: 50%;	
 	height: 20px;
 	display: inline-block;
 }
-#document.ltd-sub select{
+[id$=document].ltd-sub .col-md-6 input[type="text"],[id$=document].ltd-sub .col-md-6 select{
+	width: 70%;	
+	height: 20px;
+	display: inline-block;
+}
+[id$=document].ltd-sub select{
 	font-size: smaller;
 	padding: 0;
 }
-#document.ltd-sub div{
+[id$=document].ltd-sub div{
 	margin-right: 2px;
 }
-#document.ltd-sub div div{
+[id$=document].ltd-sub div div{
 	margin: 3px auto;
 }
 #ltd-main-content.ltd-sub{
